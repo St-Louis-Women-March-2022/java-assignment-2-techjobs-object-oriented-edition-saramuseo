@@ -31,7 +31,7 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
-    // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
+    // DONE: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
     @Override
@@ -45,6 +45,38 @@ public class Job {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    //TODO: set up toString method using TDD
+
+    @Override
+    public String toString() {
+        if(name =="" && employer.getValue()=="" && location.getValue() == "" && positionType.getValue() == "" && coreCompetency.getValue() == "") {
+            return "OOPS! This job does not seem to exist.";
+        }
+
+        if(name == "") {
+            setName("Data not available");
+        }
+        if(employer.getValue() == "") {
+            employer.setValue("Data not available");
+        }
+        if(location.getValue() == "") {
+            location.setValue("Data not available");
+        }
+        if(positionType.getValue() == "") {
+            positionType.setValue("Data not available");
+        }
+        if(coreCompetency.getValue() == "") {
+            coreCompetency.setValue("Data not available");
+        }
+        return "\nID: " + id +
+                "\nName: " + name +
+                "\nEmployer: " + employer +
+                "\nLocation: " + location +
+                "\nPosition Type: " + positionType +
+                "\nCore Competency: " + coreCompetency +
+                "\n";
     }
 
 
